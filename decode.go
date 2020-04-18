@@ -1,0 +1,4 @@
+package gorillang
+
+func Decode() {
+}

@@ -43,9 +43,14 @@ $ gorillang decode ウホゥホウホホッゥホ ウホゥホウホオホゥホ
 
 ## Tips for MacOS users
 
-コピペした文を利用する場合、`pbpaste`と`xargs`を使えばコマンドを固定できます。
+生成する言葉をどこかへコピペしたい場合、パイプで`pbcopy`へつなぐ。
 
 ```
-$ pbpaste | xargs gorillang encode
+$ gorillang encode | pbcopy
+```
+
+コピペしてきたゴリラ語を表示したい場合、`pbpaste`と`xargs`を以下のように使う。
+
+```
 $ pbpaste | xargs gorillang decode
 ```

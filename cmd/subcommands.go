@@ -3,8 +3,6 @@ package main
 import (
 	"errors"
 	"fmt"
-	"io/ioutil"
-	"os"
 	"strings"
 
 	"github.com/spf13/cobra"
@@ -35,9 +33,6 @@ func NewCommandDecode() *cobra.Command {
 		Use:   "decode",
 		Short: "ゴリラ語を人間の言葉にします。使い方: gorillang decode ウホウォホッ！！ホッ ウホウォうほホホッ！ ウホ？ゥゥオホ！！",
 		PreRunE: func(cmd *cobra.Command, args []string) error {
-			stdin := os.Stdin
-			s, _ := ioutil.ReadAll(stdin)
-			fmt.Println("stdin:", s)
 			if len(args) < 1 {
 				return errors.New("ゴリラ語を入れてください。")
 			}

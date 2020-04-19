@@ -5,15 +5,15 @@ import (
 	"strings"
 )
 
-type CPElement string
+type CodePoint string
 
 type Sentence struct {
-	CodePoint []CPElement
+	CodePoints []CodePoint
 }
 
 func (s Sentence) String() string {
-	ss := make([]string, len(s.CodePoint))
-	for i, cp := range s.CodePoint {
+	ss := make([]string, len(s.CodePoints))
+	for i, cp := range s.CodePoints {
 		char, _ := strconv.ParseUint(string(cp), 16, 32)
 		r := rune(char)
 		ss[i] = string(r)

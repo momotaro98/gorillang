@@ -11,7 +11,7 @@ func TestSentence(t *testing.T) {
 	input := `ウホゥホウホホッゥホ ウホゥホウホオホゥホ ウホゥホウホウォッッ ウホゥホウホウォウウ ウホゥホウホウォウッホ`
 
 	tests := []struct {
-		expectedCodePoint CPElement
+		expectedCodePoint CodePoint
 	}{
 		{"3053"}, // こ
 		{"3093"}, // ん
@@ -30,8 +30,8 @@ func TestSentence(t *testing.T) {
 		t.Fatalf("Sentence() returned nil")
 	}
 	for i, tt := range tests {
-		if sentence.CodePoint[i] != tt.expectedCodePoint {
-			t.Errorf("[%d] wrong. expected=%+v, got=%+v", i, tt.expectedCodePoint, sentence.CodePoint[i])
+		if sentence.CodePoints[i] != tt.expectedCodePoint {
+			t.Errorf("[%d] wrong. expected=%+v, got=%+v", i, tt.expectedCodePoint, sentence.CodePoints[i])
 		}
 	}
 	// Act and Assert String() method

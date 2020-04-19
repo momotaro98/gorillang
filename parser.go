@@ -1,6 +1,6 @@
 package gorillang
 
-var codePointMap = map[TokenType]CPElement{
+var codePointMap = map[TokenType]CodePoint{
 	X0: "0",
 	X1: "1",
 	X2: "2",
@@ -43,12 +43,12 @@ func (p *Parser) nextToken() {
 
 func (p *Parser) ParseSentence() *Sentence {
 	sentence := &Sentence{}
-	sentence.CodePoint = []CPElement{}
+	sentence.CodePoints = []CodePoint{}
 
 	for p.curToken.Type != EOF {
 		cp := p.parseSentence()
 		if cp != "" {
-			sentence.CodePoint = append(sentence.CodePoint, cp)
+			sentence.CodePoints = append(sentence.CodePoints, cp)
 		}
 		p.nextToken()
 	}
@@ -56,8 +56,8 @@ func (p *Parser) ParseSentence() *Sentence {
 	return sentence
 }
 
-func (p *Parser) parseSentence() CPElement {
-	var codePoint CPElement
+func (p *Parser) parseSentence() CodePoint {
+	var codePoint CodePoint
 
 	if p.curToken.Type != PREFIX {
 		return "" // TODO: error
@@ -68,7 +68,7 @@ func (p *Parser) parseSentence() CPElement {
 	return p.recursiveFn(codePoint)
 }
 
-func (p *Parser) recursiveFn(codePoint CPElement) CPElement {
+func (p *Parser) recursiveFn(codePoint CodePoint) CodePoint {
 	switch tType := p.curToken.Type; tType {
 	case ILLEGAL:
 		return codePoint // TODO: error

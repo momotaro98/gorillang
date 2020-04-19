@@ -1,3 +1,6 @@
+# Env
+.envrc
+
 # Editor IDE
 .vscode/
 .idea/

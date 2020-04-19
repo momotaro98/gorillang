@@ -22,3 +22,12 @@ changelog:
     exclude:
     - '^docs:'
     - '^test:'
+brews:
+  - github:
+      owner: momotaro98
+      name: homebrew-gorillang
+    folder: Formula
+    homepage: https://github.com/momotaro98/gorillang
+    description: gorillang
+    test: |
+      system "#{bin}/goreleaser -v"

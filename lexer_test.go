@@ -86,9 +86,10 @@ func TestNextToken(t *testing.T) {
 		{expectedType: PREFIX, expectedLiteral: []rune(`ウホ`)},
 		{expectedType: X4, expectedLiteral: []rune(`ホゥ`)},
 		{expectedType: XF, expectedLiteral: []rune(`ウッホ`)},
+		{expectedType: EOF, expectedLiteral: []rune{0}},
 	}
 
-	l := New(input)
+	l := NewLexer(input)
 
 	for i, tt := range tests {
 		// Act

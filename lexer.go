@@ -8,7 +8,7 @@ type Lexer struct {
 	isAmongWhiteSpace bool // ホワイトスペースの間で文字(Unicode)の途中であるかどうか
 }
 
-func New(input string) *Lexer {
+func NewLexer(input string) *Lexer {
 	r := []rune(input)
 	l := &Lexer{
 		input: r,

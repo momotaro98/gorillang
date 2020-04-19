@@ -34,7 +34,7 @@ $ gorillang encode こんにちは
 ウホゥホウホホッゥホ ウホゥホウホオホゥホ ウホゥホウホウォッッ ウホゥホウホウォウウ ウホゥホウホウォウッホ
 ```
 
-## 日本語 → ゴリラ語
+## ゴリラ語 → 日本語
 
 ```
 $ gorillang decode ウホゥホウホホッゥホ ウホゥホウホオホゥホ ウホゥホウホウォッッ ウホゥホウホウォウウ ウホゥホウホウォウッホ
@@ -46,11 +46,12 @@ $ gorillang decode ウホゥホウホホッゥホ ウホゥホウホオホゥホ
 生成する言葉をどこかへコピペしたい場合、パイプで`pbcopy`へつなぐ。
 
 ```
-$ gorillang encode | pbcopy
+$ gorillang encode おはよう | pbcopy
 ```
 
 コピペしてきたゴリラ語を表示したい場合、`pbpaste`と`xargs`を以下のように使う。
 
 ```
 $ pbpaste | xargs gorillang decode
+おはよう
 ```

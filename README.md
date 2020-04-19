@@ -12,19 +12,18 @@ __このコマンドラインツールのゴリラ語は上記元ネタ様と完
 
 # インストール
 
+## MacOS
+
+```
+$ brew tap momotaro98/gorillang
+$ brew install momotaro98/gorillang/gorillang
+```
+
 ## Go言語と$GOPATHが通った$PATHを持つ奇特な方
 
 ```
 $ go get -u github.com/momotaro98/gorillang/cmd
 ```
-
-## MacOS
-
-TBD
-
-## Windows
-
-TBD
 
 # 遊び方
 
@@ -44,7 +43,7 @@ $ gorillang decode ウホゥホウホホッゥホ ウホゥホウホオホゥホ
 
 ## Tips for MacOS users
 
-コピペした言葉は`pbpaste`と`xargs`を使えばコマンド内容を固定できます。
+コピペした文を利用する場合、`pbpaste`と`xargs`を使えばコマンドを固定できます。
 
 ```
 $ pbpaste | xargs gorillang encode

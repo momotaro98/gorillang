@@ -13,7 +13,7 @@ import (
 func NewCommandEncode() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "encode",
-		Short: "人間の言葉をゴリラ語に変換します。使い方: gorillang encode おはよう",
+		Short: "人間の言葉をゴリラ語にします。使い方: gorillang encode おはよう",
 		PreRunE: func(cmd *cobra.Command, args []string) error {
 			if len(args) < 1 {
 				return errors.New("言葉を入れてください。")
@@ -21,7 +21,8 @@ func NewCommandEncode() *cobra.Command {
 			return nil
 		},
 		Run: func(cmd *cobra.Command, args []string) {
-			output := gorillang.Encode(args[0])
+			input := strings.Join(args, " ")
+			output := gorillang.Encode(input)
 			fmt.Println(output)
 		},
 	}

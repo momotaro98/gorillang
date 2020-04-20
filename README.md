@@ -43,13 +43,13 @@ $ gorillang decode ウホゥホウホホッゥホ ウホゥホウホオホゥホ
 
 ## Tips for MacOS users
 
-生成する言葉をどこかへコピペしたい場合、パイプで`pbcopy`へつなぐ。
+生成するゴリラ語をどこかへコピペしたい場合、パイプで`pbcopy`へつなぐ。
 
 ```
 $ gorillang encode おはよう | pbcopy
 ```
 
-コピペしてきたゴリラ語を表示したい場合、`pbpaste`と`xargs`を以下のように使う。
+クリップボードにコピーしたゴリラ語を人間の言葉で表示したい場合、`pbpaste`と`xargs`を以下のように使う。
 
 ```
 $ pbpaste | xargs gorillang decode

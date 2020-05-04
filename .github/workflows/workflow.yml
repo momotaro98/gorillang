@@ -1,0 +1,49 @@
+name: Workflow
+on: push
+jobs:
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Go
+      uses: actions/setup-go@v1
+      with:
+        go-version: 1.13.x
+
+    - name: Run unit test
+      run: make test
+
+    - name: Run linter
+      run: make lint
+
+  goreleaser:
+    name: Release binaries
+    needs: test
+    if: startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+    steps:
+
+		- name: Checkout
+			uses: actions/checkout@v2
+
+		- name: Unshallow
+			run: git fetch --prune --unshallow
+
+		- name: Set up Go
+			uses: actions/setup-go@v1
+			with:
+				go-version: 1.13.x
+
+		- name: Run GoReleaser
+			uses: goreleaser/goreleaser-action@v1
+			with:
+				version: latest
+				args: release --rm-dist
+				key: ${{ secrets.MY_PERSONAL_TOKEN }}
+			env:
+				GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

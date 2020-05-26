@@ -22,7 +22,7 @@ $ brew install momotaro98/gorillang/gorillang
 ## Go言語と$GOPATHが通った$PATHを持つ奇特な方
 
 ```
-$ go get -u github.com/momotaro98/gorillang/cmd
+$ go get -u github.com/momotaro98/gorillang/cmd/gorillang
 ```
 
 # 遊び方

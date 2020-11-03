@@ -22,11 +22,12 @@ changelog:
     - '^docs:'
     - '^test:'
 brews:
-  - github:
-      owner: momotaro98
-      name: homebrew-gorillang
-    folder: Formula
-    homepage: https://github.com/momotaro98/gorillang
-    description: gorillang
-    test: |
-      system "#{bin}/goreleaser -v"
+- tap:
+    owner: momotaro98
+    name: homebrew-gorillang
+    token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
+  folder: Formula
+  homepage: https://github.com/momotaro98/gorillang
+  description: gorillang
+  test: |
+    system "#{bin}/gorillang --version"

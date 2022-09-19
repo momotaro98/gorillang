@@ -15,14 +15,14 @@ __このコマンドラインツールのゴリラ語は上記元ネタ様と完
 ## MacOS
 
 ```
-$ brew tap momotaro98/gorillang
-$ brew install momotaro98/gorillang/gorillang
+brew tap momotaro98/gorillang
+brew install momotaro98/gorillang/gorillang
 ```
 
 ## Go言語と$GOPATHが通った$PATHを持つ奇特な方
 
 ```
-$ go get -u github.com/momotaro98/gorillang/cmd/gorillang
+go install github.com/momotaro98/gorillang/cmd/gorillang@latest
 ```
 
 # 遊び方

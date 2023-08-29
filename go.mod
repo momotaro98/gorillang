@@ -1,6 +1,6 @@
 module github.com/momotaro98/gorillang
 
-go 1.19
+go 1.21
 
 require (
 	github.com/mitchellh/go-homedir v1.1.0

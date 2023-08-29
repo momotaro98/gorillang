@@ -7,10 +7,13 @@ builds:
   main: ./cmd/gorillang/
   binary: gorillang
 archives:
-- replacements:
-    darwin: Darwin
-    386: i386
-    amd64: x86_64
+- name_template: >-
+    {{- .ProjectName }}_ 
+    {{- title .Os }}_ 
+    {{- if eq .Arch "amd64" }}x86_64 
+    {{- else if eq .Arch "386" }}i386 
+    {{- else }}{{ .Arch }}{{ end }} 
+    {{- if .Arm }}v{{ .Arm }}{{ end -}}
 checksum:
   name_template: 'checksums.txt'
 snapshot:
@@ -22,7 +25,7 @@ changelog:
     - '^docs:'
     - '^test:'
 brews:
-- tap:
+- repository:
     owner: momotaro98
     name: homebrew-gorillang
     token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"

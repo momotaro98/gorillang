@@ -55,3 +55,11 @@ $ gorillang encode おはよう | pbcopy
 $ pbpaste | xargs gorillang decode
 おはよう
 ```
+
+# For developer
+
+## Release binaries
+
+[goreleaser](./.goreleaser.yml) works on [.github/workflows/workflow.yml](./.github/workflows/workflow.yml).
+
+To run the goreleaser job, `git push origin newTagName` from local is required.
